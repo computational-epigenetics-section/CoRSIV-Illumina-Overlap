@@ -12,7 +12,7 @@ This repository presents the results of the overlap analysis between various pla
 ## CoRSIV-like region data
 - **data/SIV regions/ESS.hg38.bed:** BED file for ESS regions, from Table S7 of Van Baak, 2018 **[2]** (supplmentary_tables/ESS-2018.xlsx).
 - **data/SIV regions/ME.hg38.bed:** BED file for ME regions, from Table S3 of Silver & Kessler, 2015 **[1]** (supplmentary_tables/SIV-2015.xlsx).
-- **data/SIV regions/SIV.hg38.bed:** BED file for SIV regions, from Table S9 of Van Baak, 2018 **[2]** (supplmentary_tables/ESS-2017.xlsx).
+- **data/SIV regions/SIV.hg38.bed:** BED file for SIV regions, from Table S9 of Van Baak, 2018 **[2]** (supplmentary_tables/ESS-2018.xlsx).
 - **data/SIV regions/siv_all.bed:** following the convention of Table S18 of Gunasekara, 2023 **[4]** (supplmentary_tables/CoRSIV-2023.xlsx), SIV and ME regions are combined and referred to as SIV regions.
 - **data/SIV regions/corsiv2019.txt:** BED file for CoRSIV regions, from Table S3 of Gunasekara, 2019 **[3]** (supplmentary_tables/CoRSIV-2019.xls).
 - **data/SIV regions/all_regions.bed:** Union of all ESS, SIV, and CoRSIV regions. Overlapping regions are merged.
