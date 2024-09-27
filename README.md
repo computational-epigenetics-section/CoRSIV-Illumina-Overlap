@@ -16,7 +16,7 @@ First three columns are CpG_chr, CpG_beg, CpG_end, representing genomic coordina
 - **input_data/ME.hg38.bed:** BED file for ME regions, from Table S3 of Silver & Kessler, 2015 **[1]** (input_data/SIV-2015.xlsx).
 - **input_data/SIV.hg38.bed:** BED file for SIV regions, from Table S9 of Van Baak, 2018 **[2]** (input_data/ESS-2018.xlsx).
 - **input_data/ESS.hg38.bed:** BED file for ESS regions, from Table S7 of Van Baak, 2018 **[2]** (input_data/ESS-2018.xlsx).
-- **input_data/SIV regions/corsiv2019.txt:** BED file for CoRSIV regions, from Table S3 of Gunasekara, 2019 **[3]** (input_data/CoRSIV-2019.xls).
+- **input_data/corsiv2019.txt:** BED file for CoRSIV regions, from Table S3 of Gunasekara, 2019 **[3]** (input_data/CoRSIV-2019.xls).
 - **cleaned_data/regions/corsiv_regions_autosome_padded.bed:** Union of all ME, SIV, ESS and CoRSIV regions. Overlapping regions are merged into one single region. Regions that are smaller than 200 bp or not multiples of 100 bp are padded to the nearest hundred bp, with equal padding on both sides.
 - **cleaned_data/regions/control_regions_all.bed:** 10 sets of control regions (N = 103,880) generated to be mapped to CoRSIV regions (N = 10,388) based on chromosome, CpG density, gene proximity, and number of EPIC/HM450 probes. Each individual set is also listed in **cleaned_data/regions/control_regions_N.bed**, for N = 1 to 10.
 
