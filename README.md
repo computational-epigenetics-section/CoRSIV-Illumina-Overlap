@@ -2,6 +2,18 @@
 # Data Description
 This repository presents the results of the overlap analysis between various platforms of Illumina probes (HM450, EPIC, MSA) and different versions of CoRSIV-like regions (ESS, SIV, CoRSIVs). 
 
+**TLDR:**
+- CoRSIV region coordinates are in **cleaned_data/regions/corsiv_regions_autosome_padded.bed**.
+- Control region coordinates are in **cleaned_data/regions/control_regions_all.bed**.
+- HM450, EPIC, MSA, EPIC+HM450, EPIC+HM450+MSA probes overlapping with CoRSIVs are under directory **cleaned_data/probes**.
+- **data_summary/corsiv_annotated_manifest.csv** includes probe annotations for EPIC and HM450 probes overlapping with CoRSIVs.
+- EPIC+HM450 probes overlapping with control regions are in **cleaned_data/probes/control_HM450_EPIC_probes_all.bed**.
+
+
+All coordinates follow 0-based start and 1-based end BED file convention, and is based on hg38.
+
+
+
 ## Illumina probe data
 - **cleaned_data/illumina/EPIC.clean.bed:** BED file containing all EPIC probes on chromosomes 1-22.
 - **cleaned_data/illumina/HM450.clean.bed:** BED file containing all HM450 probes on chromosomes 1-22.
@@ -18,7 +30,7 @@ First three columns are CpG_chr, CpG_beg, CpG_end, representing genomic coordina
 - **input_data/ESS.hg38.bed:** BED file for ESS regions, from Table S7 of Van Baak, 2018 **[2]** (input_data/ESS-2018.xlsx).
 - **input_data/corsiv2019.txt:** BED file for CoRSIV regions, from Table S3 of Gunasekara, 2019 **[3]** (input_data/CoRSIV-2019.xls).
 - **cleaned_data/regions/corsiv_regions_autosome_padded.bed:** Union of all ME, SIV, ESS and CoRSIV regions. Overlapping regions are merged into one single region. Regions that are smaller than 200 bp or not multiples of 100 bp are padded to the nearest hundred bp, with equal padding on both sides.
-- **cleaned_data/regions/control_regions_all.bed:** 10 sets of control regions (N = 103,880) generated to be mapped to CoRSIV regions (N = 10,388) based on chromosome, CpG density, gene proximity, and number of EPIC/HM450 probes. Each individual set is also listed in **cleaned_data/regions/control_regions_N.bed**, for N = 1 to 10.
+- **cleaned_data/regions/control_regions_all.bed:** 10 sets of control regions (N = 103,880) generated to be mapped to CoRSIV regions (N = 10,388) based on chromosome, CpG density, gene proximity, and number of EPIC/HM450 probes. Each individual set is also listed in **cleaned_data/regions/control_regions_N.bed**, for N = 1 to 10. Comparison of features between CoRSIVs and control regions are listed in **data_summary/corsiv_control_matching.csv**.
 
 First three columns are region_chr, region_beg, region_end, representing genomic coordinate for the target region. Fourth and fifth columns represent region ID. Processing carried out to generate the above files can be found in **probe_overlap.ipynb**.
 
@@ -27,24 +39,24 @@ First three columns are region_chr, region_beg, region_end, representing genomic
 - **cleaned_data/probes/corsiv_EPIC_probes.bed:** BED file containing all EPIC probes overlapping with CoRSIVs.
 - **cleaned_data/probes/corsiv_MSA_probes.bed:** BED file containing all MSA probes overlapping with CoRSIVs.
 - **cleaned_data/probes/corsiv_HM450_EPIC_probes.bed:** BED file containing all EPIC and HM450 probes overlapping with CoRSIVs.
-- **cleaned_data/probes/corsiv_HM450_EPIC_MSA_probes.bed:** BED file containing all EPIC and HM450 probes overlapping with CoRSIVs.
+- **cleaned_data/probes/corsiv_HM450_EPIC_MSA_probes.bed:** BED file containing all EPIC, HM450 and MSAprobes overlapping with CoRSIVs.
 - **cleaned_data/probes/control_HM450_EPIC_probes_all.bed:** BED file containing all EPIC and HM450 probes overlapping with 10 sets of control regions. Each individual set is also listed in **cleaned_data/probes/control_HM450_EPIC_probes_N.bed:**, for N = 1 to 10.
 
 First four columns are probe_chr, probe_beg, probe_end and probe_id. The remaining four columns are region_chr, region_beg, region_end and region_id. Processing carried out to generate the above files can be found in **probe_overlap.ipynb**.
 
 
 ## Results
-The overlap statistics are stored in **illumina_probe_overlap_summary.xlsx**, with corresponding code in **probe_overlap.ipynb**.
+The overlap statistics are stored in **data_summary/illumina_probe_overlap_summary.xlsx**, with corresponding code in **probe_overlap.ipynb**.
 - **Table 1:** Number of probes on chromosomes 1-22 for each Illumina Platform: HM450, EPIC, MSA, HM450 U EPIC (all probes on EPIC and/or HM450), and HM450 U EPIC U MSA (all probes on all three platforms).
 - **Table 2:** Number of regions in each CoRSIV-like region: ME, SIV, ESS, CoRSIVs, and Union (all CoRSIV-like regions).
 - **Table 3:** Number of probes overlapping with CoRSIV-like regions, broken down by platform.
 - **Table 4:** Percentage of probes overlapping with CoRSIV-like regions, broken down by platform.
 - **Table 5:** Number of CoRSIV-like regions overlapping with at least one probe, broken down by platform.
 - **Table 6:** Percentage of CoRSIV-like regions overlapping with at least one probe, broken down by platform.
+
+**data_summary/corsiv_annotated_manifest.csv** includes probe annotations for EPIC and HM450 probes overlapping with CoRSIVs.
   
 ## Notes
-
-All Coordinates in this repository follow 0-based start and 1-based end BED file convention, and is based on hg38.
 
 Illumina probe annotations are sourced from [Zhou Lab InfiniumAnnotation](https://zwdzwd.github.io/InfiniumAnnotation) or official Illumina website.
 
